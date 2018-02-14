@@ -1,17 +1,9 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { View, Text } from 'react-native';
 
 import styles from './styles';
-
-/*
-Post.propTypes = {
-  title: PropTypes.string,
-  author: PropTypes.string,
-  text: PropTypes.string,
-};
-*/
 
 const Post = ({ post: { title, author, text } }) => (
   <View style={styles.container}>
@@ -21,5 +13,13 @@ const Post = ({ post: { title, author, text } }) => (
     <Text style={styles.text}>{text}</Text>
   </View>
 );
+
+Post.propTypes = {
+  post: PropTypes.shape({
+    title: PropTypes.string,
+    author: PropTypes.string,
+    text: PropTypes.string,
+  }).isRequired,
+};
 
 export default Post;
